@@ -22,8 +22,6 @@
                 overflow: visible !important;
 
                 #zen-appcontent-navbar-container {
-                    margin-left: calc(0px - var(--zen-toolbox-max-width)) !important;
-
                     #nav-bar-customization-target > toolbarbutton:first-child {
                         padding-inline-start: var(--toolbarbutton-outer-padding) !important;
                     }
