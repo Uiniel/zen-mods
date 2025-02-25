@@ -98,7 +98,7 @@
                 }
 
                 .tab-label-container {
-                    display: inline-block !important;
+                    display: flex !important;
                 }
 
                 .tab-content {
@@ -315,5 +315,15 @@
                 margin-inline: 0 !important;
             }
         }
+    }
+    #zen-sidebar-bottom-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+    #zen-sidebar-bottom-buttons > * {
+        flex-grow: 1 !important;
+    }
+    #navigator-toolbox:not([zen-has-hover], [has-popup-menu], [movingtab]) #zen-sidebar-bottom-buttons {
+        flex-direction: column !important;
     }
 }
