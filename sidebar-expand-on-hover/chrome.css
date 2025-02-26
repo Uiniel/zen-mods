@@ -337,4 +337,7 @@
         max-width: 100%;
         box-sizing: border-box;
     }
+    #navigator-toolbox:not([zen-has-hover], [has-popup-menu], [movingtab]) vbox.tab-background {
+        width: 80% !important;
+    }
 }
