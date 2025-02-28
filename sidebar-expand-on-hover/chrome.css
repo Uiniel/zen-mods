@@ -129,7 +129,7 @@
     }
 
     @media (-moz-bool-pref: "theme.sidebar_expand_on_hover.hide_workspace_indicator") {
-        #zen-current-workspace-indicator {
+        #zen-current-workspace-indicator-container {
             display: none !important;
         }
     }
