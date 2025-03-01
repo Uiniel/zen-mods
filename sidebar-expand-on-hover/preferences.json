@@ -40,5 +40,25 @@
       "label": "Transition speed of the sidebar",
       "type": "string",
       "defaultValue": "120ms"
+    },
+    {
+        "property": "theme.sidebar_expand_on_hover.add_hover_delay",
+        "label": "Enable if you want to add a hover delay (layout of the bottom bar changes a bit)  ",
+        "type": "checkbox",
+        "defaultValue": false
+   
+    },
+    {
+        "property": "theme.sidebar_expand_on_hover.time_delay",
+        "label": "Set the time till the sidebar expands (ms) needs the above to be enabled",
+        "type": "string",
+        "defaultValue": "50ms"
+    },
+    {
+        "property": "theme.sidebar_expand_on_hover.hover_activate",
+        "label": "If enabled, sidebar gets active fill after a delay and not instantly (this needs hover delay active) ",
+        "type": "checkbox",
+        "defaultValue": false
+   
     }
   ]
