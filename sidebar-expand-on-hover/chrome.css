@@ -360,4 +360,47 @@
         max-width: 100%;
         box-sizing: border-box;
     }
+    
+    /* Disable flex on tab-group[split-view-group] while controlling space */
+    :root:has(#navigator-toolbox:not([zen-sidebar-expanded="true"])) tab-group[split-view-group],
+    :root[zen-compact-mode="true"] tab-group[split-view-group],
+    tab-group[split-view-group] {
+        display: block !important;
+        flex: none !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
+        flex-basis: auto !important;
+        flex-direction: unset !important;
+        flex-wrap: unset !important;
+        align-items: unset !important;
+        align-content: unset !important;
+        justify-content: unset !important;
+        
+        /* Control dimensions and spacing */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        
+        /* Preserve font styling and appearance */
+        font: inherit !important;
+        color: inherit !important;
+        background: inherit !important;
+        border: inherit !important;
+        border-radius: inherit !important;
+        text-align: inherit !important;
+    }
+    
+    /* Control spacing for children */
+    :root:has(#navigator-toolbox:not([zen-sidebar-expanded="true"])) tab-group[split-view-group] > *,
+    :root[zen-compact-mode="true"] tab-group[split-view-group] > * {
+        flex: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        font: inherit !important;
+    }
 }
