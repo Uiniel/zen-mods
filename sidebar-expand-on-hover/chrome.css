@@ -122,14 +122,35 @@
             }
         }
     }
-
+    
+    /* Essential pins container */
     #zen-essentials-container {
         width: var(--theme-sidebar_expand_on_hover-expanded_width) !important;
         justify-content: unset !important;
     }
+    
+    /* ====== MODIFICATIONS START ====== */
+    /* When toolbar is NOT expanded (collapsed state) */
+    #navigator-toolbox:not([zen-has-hover], [has-popup-menu], [movingtab]) #titlebar:not(#titlebar:hover, #titlebar:has(toolbarbutton[open="true"]:not(#zen-sidepanel-button))) #zen-essentials-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        max-width: var(--zen-toolbox-max-width) !important;
+        justify-content: center !important;
+    }
+    
+    /* Ensure all pins are visible but fit within collapsed width */
+    #navigator-toolbox:not([zen-has-hover], [has-popup-menu], [movingtab]) #titlebar:not(#titlebar:hover, #titlebar:has(toolbarbutton[open="true"]:not(#zen-sidepanel-button))) #zen-essentials-container > * {
+        width: var(--zen-toolbox-max-width) !important;
+        max-width: var(--zen-toolbox-max-width) !important;
+        height: var(--zen-toolbox-max-width) !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    /* ====== MODIFICATIONS END ====== */
 
     @media (-moz-bool-pref: "theme.sidebar_expand_on_hover.hide_workspace_indicator") {
-        #zen-current-workspace-indicator {
+        #zen-current-workspace-indicator-container {
             display: none !important;
         }
     }
@@ -242,6 +263,10 @@
         }
     }
 
+    #zen-sidebar-top-buttons-separator {
+        display: none !important;
+    }
+
     #zen-sidebar-icons-wrapper,
     #zen-sidebar-top-buttons-customization-target {
         justify-content: center !important;
@@ -318,14 +343,12 @@
     }
     #zen-sidebar-bottom-buttons {
         display: flex !important;
-        flex-direction: row !important;
+        flex-flow: row wrap !important;
     }
     #zen-sidebar-bottom-buttons > * {
         flex-grow: 1 !important;
     }
-    #navigator-toolbox:not([zen-has-hover], [has-popup-menu], [movingtab]) #zen-sidebar-bottom-buttons {
-        flex-direction: column !important;
-    }
+
     .zen-workspace-tabs-section {
         display: flex;
         flex-direction: column;
