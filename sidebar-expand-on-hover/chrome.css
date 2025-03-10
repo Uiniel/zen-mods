@@ -122,14 +122,35 @@
             }
         }
     }
-
+    
+    /* Essential pins container */
     #zen-essentials-container {
         width: var(--theme-sidebar_expand_on_hover-expanded_width) !important;
         justify-content: unset !important;
     }
+    
+    /* ====== MODIFICATIONS START ====== */
+    /* When toolbar is NOT expanded (collapsed state) */
+    #navigator-toolbox:not([zen-has-hover], [has-popup-menu], [movingtab]) #titlebar:not(#titlebar:hover, #titlebar:has(toolbarbutton[open="true"]:not(#zen-sidepanel-button))) #zen-essentials-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        max-width: var(--zen-toolbox-max-width) !important;
+        justify-content: center !important;
+    }
+    
+    /* Ensure all pins are visible but fit within collapsed width */
+    #navigator-toolbox:not([zen-has-hover], [has-popup-menu], [movingtab]) #titlebar:not(#titlebar:hover, #titlebar:has(toolbarbutton[open="true"]:not(#zen-sidepanel-button))) #zen-essentials-container > * {
+        width: var(--zen-toolbox-max-width) !important;
+        max-width: var(--zen-toolbox-max-width) !important;
+        height: var(--zen-toolbox-max-width) !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    /* ====== MODIFICATIONS END ====== */
 
     @media (-moz-bool-pref: "theme.sidebar_expand_on_hover.hide_workspace_indicator") {
-        #zen-current-workspace-indicator {
+        #zen-current-workspace-indicator-container {
             display: none !important;
         }
     }
@@ -242,6 +263,10 @@
         }
     }
 
+    #zen-sidebar-top-buttons-separator {
+        display: none !important;
+    }
+
     #zen-sidebar-icons-wrapper,
     #zen-sidebar-top-buttons-customization-target {
         justify-content: center !important;
@@ -318,14 +343,12 @@
     }
     #zen-sidebar-bottom-buttons {
         display: flex !important;
-        flex-direction: row !important;
+        flex-flow: row wrap !important;
     }
     #zen-sidebar-bottom-buttons > * {
         flex-grow: 1 !important;
     }
-    #navigator-toolbox:not([zen-has-hover], [has-popup-menu], [movingtab]) #zen-sidebar-bottom-buttons {
-        flex-direction: column !important;
-    }
+
     .zen-workspace-tabs-section {
         display: flex;
         flex-direction: column;
@@ -336,5 +359,48 @@
         overflow: hidden;
         max-width: 100%;
         box-sizing: border-box;
+    }
+    
+    /* Disable flex on tab-group[split-view-group] while controlling space */
+    :root:has(#navigator-toolbox:not([zen-sidebar-expanded="true"])) tab-group[split-view-group],
+    :root[zen-compact-mode="true"] tab-group[split-view-group],
+    tab-group[split-view-group] {
+        display: block !important;
+        flex: none !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
+        flex-basis: auto !important;
+        flex-direction: unset !important;
+        flex-wrap: unset !important;
+        align-items: unset !important;
+        align-content: unset !important;
+        justify-content: unset !important;
+        
+        /* Control dimensions and spacing */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        
+        /* Preserve font styling and appearance */
+        font: inherit !important;
+        color: inherit !important;
+        background: inherit !important;
+        border: inherit !important;
+        border-radius: inherit !important;
+        text-align: inherit !important;
+    }
+    
+    /* Control spacing for children */
+    :root:has(#navigator-toolbox:not([zen-sidebar-expanded="true"])) tab-group[split-view-group] > *,
+    :root[zen-compact-mode="true"] tab-group[split-view-group] > * {
+        flex: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        font: inherit !important;
     }
 }
