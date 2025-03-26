@@ -187,6 +187,10 @@
             display: flex !important;
         }
     }
+    
+    #zen-sidebar-top-buttons-separator {
+        display: none !important;
+    }
 
     #zen-workspaces-button {
         flex-direction: row !important;
